@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: projectnewton
+  labels:
+    name: projectnewton
+
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: projectnewton
+    spec:
+      containers:
+      - name: newtonapi
+        image: gcr.io/projectnewton-2204/newtonapi:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
